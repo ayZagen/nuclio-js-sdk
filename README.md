@@ -1,11 +1,11 @@
 # nuclio-js-sdk
 [Nuclio Dashboard Http API](https://github.com/nuclio/nuclio/tree/master/cmd/dashboard) implementation in javascript.
 
-## Installation
+## 1. Installation
 
 `npm i github:ayZagen/nuclio-js-sdk` or with yarn `yarn add github:ayZagen/nuclio-js-sdk`
 
-## Example Usage 
+## 2. Example Usage 
 
 ```js
 
@@ -43,3 +43,6 @@ const func = await api.createFunction( {
 
 await api.deleteFunction(func.metadata.name)
 ```
+
+## 3. TODO
+- [ ] Test

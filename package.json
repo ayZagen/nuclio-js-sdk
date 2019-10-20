@@ -1,0 +1,47 @@
+{
+  "name": "nuclio-js-sdk",
+  "version": "1.0.0",
+  "author": "Ismail Hakki Ayaz <ayazismailhakki@gmail.com>",
+  "license": "Unlicense",
+  "main": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ayZagen/nuclio-js-sdk"
+  },
+  "scripts": {
+    "dev": "tsnd lib/test.ts",
+    "build": "tsc"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "dependencies": {
+    "got": "^10.0.0-alpha.2.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@typescript-eslint/eslint-plugin": "2.4.0",
+    "@typescript-eslint/experimental-utils": "2.4.0",
+    "@typescript-eslint/parser": "2.4.0",
+    "eslint": "^6.5.1",
+    "eslint-plugin-prefer-arrow": "1.1.6",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "standard-version": "^7.0.0",
+    "ts-node-dev": "^1.0.0-pre.43",
+    "typescript": "3.6.4"
+  }
+}

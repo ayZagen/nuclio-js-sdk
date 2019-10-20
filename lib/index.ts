@@ -61,20 +61,24 @@ export class Nuclio {
   async updateFunction(name: string, functionDef: NuclioFunction){
     return this.http.put('functions/' + name, {
       json: functionDef
-    });
+    }) as any;
   }
 
-  async invokeFunction(name: string, method: Method, requestBody: any, path?: string, invokeVia?: string){
+  async invokeFunction(name: string,
+    method: Method,
+    requestBody: any,
+    path?: string,
+    invokeVia: string = 'external-ip'
+  ){
     return this.http('function_invocations', {
       method,
       json    : requestBody,
       headers : {
-        'content-type'           : 'application/json',
         'x-nuclio-function-name' : name,
         'x-nuclio-path'          : path,
         'x-nuclio-invoke-via'    : invokeVia
       }
-    });
+    }) as any;
   }
 
   async deleteFunction(name: string){
@@ -83,29 +87,29 @@ export class Nuclio {
         name,
         namespace: this.namespace
       }
-    });
+    }) as any;
   }
 
   async getEvents(){
-    return this.http.get('function_events');
+    return this.http.get('function_events') as any;
   }
   async getEventByName(name: string){
-    return this.http.get('function_events/'+ name);
+    return this.http.get('function_events/'+ name) as any;
   }
   async createEvent(eventDef: any){
     return this.http.post('function_events', {
       json: eventDef
-    });
+    }) as any;
   }
 
   async getFunctionTemplates(){
-    return this.http.get('function_templates');
+    return this.http.get('function_templates') as any;
   }
 
   async updateEvent(name: string, eventDef: any){
     return this.http.put('function_events', {
       json: eventDef
-    });
+    }) as any;
   }
   async deleteEvent(name: string){
     return this.http.delete('function_events', {
@@ -113,7 +117,7 @@ export class Nuclio {
         name,
         namespace: this.namespace
       }
-    });
+    }) as any;
   }
 
   async getProjects(): Promise<{ [key: string]: Project}>{
@@ -130,7 +134,7 @@ export class Nuclio {
   async updateProject(name: string, projectDef: Project){
     return this.http.put('projects', {
       json: projectDef
-    });
+    }) as any;
   }
   async deleteProject(name: string){
     return this.http.delete('projects', {
@@ -138,12 +142,12 @@ export class Nuclio {
         name,
         namespace: this.namespace
       }
-    });
+    }) as any;
   }
   async version(){
-    return this.http.get('versions');
+    return this.http.get('versions') as any;
   }
   async getExternalIPAddresses(){
-    return this.http.get('external_ip_addresses');
+    return this.http.get('external_ip_addresses') as any;
   }
 }

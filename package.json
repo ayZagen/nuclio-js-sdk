@@ -13,6 +13,7 @@
     "url": "https://github.com/ayZagen/nuclio-js-sdk"
   },
   "scripts": {
+    "dev": "tsnd lib/test.ts",
     "build": "tsc",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --fix --ext .ts"

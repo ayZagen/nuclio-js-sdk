@@ -13,12 +13,11 @@
     "url": "https://github.com/ayZagen/nuclio-js-sdk"
   },
   "scripts": {
-    "dev": "tsnd lib/test.ts",
     "build": "tsc"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "yarn build && lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },

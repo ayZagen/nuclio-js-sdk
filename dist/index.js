@@ -107,13 +107,13 @@ var Nuclio = /** @class */ (function () {
         });
     };
     Nuclio.prototype.invokeFunction = function (name, method, requestBody, path, invokeVia) {
+        if (invokeVia === void 0) { invokeVia = 'external-ip'; }
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 return [2 /*return*/, this.http('function_invocations', {
                         method: method,
                         json: requestBody,
                         headers: {
-                            'content-type': 'application/json',
                             'x-nuclio-function-name': name,
                             'x-nuclio-path': path,
                             'x-nuclio-invoke-via': invokeVia

@@ -13,7 +13,9 @@
     "url": "https://github.com/ayZagen/nuclio-js-sdk"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "lint": "eslint . --ext .ts",
+    "lint-fix": "eslint . --fix --ext .ts"
   },
   "husky": {
     "hooks": {
